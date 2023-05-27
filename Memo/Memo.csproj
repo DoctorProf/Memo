@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\logo.png" />
+    <None Remove="Images\templateIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\logo.png" />
+  </ItemGroup>
+
+</Project>
