@@ -42,6 +42,8 @@ namespace Memo.ViewModels
         {
             GenerateField();
             GenerateTexture();
+            PointPlayer1 = 0;
+            PointPlayer2 = 0;
         }
         #endregion
 
