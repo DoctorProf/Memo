@@ -6,17 +6,26 @@
         xmlns:local="clr-namespace:Memo"
         xmlns:c="clr-namespace:Memo.Commands"
         xmlns:vm="clr-namespace:Memo.ViewModels"
-        Icon="../../Images/logo.png"
+        xmlns:conv ="clr-namespace:Memo.Converters"
+        Icon="../../Images/Icon/icon.png"
         mc:Ignorable="d"
-        Title="Memo">
+        Title="MEMO" Height="500" Width="460"  Background="#026128" MinHeight="460">
 
     <Window.Resources>
         <vm:GameViewModel x:Key="gvm"/>
         <c:FieldClickCommand x:Key="fcc"/>
+        <conv:MultiValueConverter x:Key="mvc"/>
         <DataTemplate x:Key="OneButton">
-            <Button Command="{StaticResource fcc}" Width="40" Height="40" Margin="0">
-                <Ellipse Fill="Black"/>
+            <Button Command="{StaticResource fcc}" Width="50" Height="50" Margin="0" IsEnabled="{Binding Enable}">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource mvc}">
+                        <Binding/>
+                        <Binding Source="{StaticResource gvm}"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+                <Image Source="{Binding TexturePath}"/>
             </Button>
+
         </DataTemplate>
 
         <DataTemplate x:Key="OneRow">
@@ -30,7 +39,11 @@
         </DataTemplate>
     </Window.Resources>
 
-    <Grid DataContext="{StaticResource gvm}">
-        <ItemsControl ItemTemplate="{DynamicResource OneRow}" ItemsSource="{Binding F}" HorizontalAlignment="Center" VerticalAlignment="Center"> </ItemsControl>
+    <Grid DataContext="{StaticResource gvm}" Width="411" Margin="0,0,0,-16">
+        <ItemsControl ItemTemplate="{DynamicResource OneRow}" ItemsSource="{Binding F}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,69,0,0"></ItemsControl>
+        <TextBlock HorizontalAlignment="Left" Margin="86,325,0,0" TextWrapping="Wrap" Text="Player 1" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="284,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="16"><Run Text="Player 2"/><LineBreak/><Run/></TextBlock>
+        <Label Content="{Binding PointPlayer1}" Foreground="White" HorizontalAlignment="Left" Margin="99,377,0,0" VerticalAlignment="Top"/>
+        <Label Content="{Binding PointPlayer2}" Foreground="White" HorizontalAlignment="Left" Margin="297,377,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

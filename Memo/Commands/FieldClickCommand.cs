@@ -1,10 +1,7 @@
-﻿using Memo.Commands.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿
+using Memo.Commands.Base;
+using Memo.Models;
+using Memo.ViewModels;
 
 namespace Memo.Commands
 {
@@ -13,7 +10,9 @@ namespace Memo.Commands
         public override void Execute(object parameters)
         {
             object[] param = parameters as object[];
-
+            FieldModel field = param[0] as FieldModel;
+            GameViewModel fvm = param[1] as GameViewModel;
+            fvm.ClickField(field);
 
         }
     }

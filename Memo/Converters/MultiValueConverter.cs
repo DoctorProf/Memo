@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Data;
 
-namespace Gomoku.Converters
+namespace Memo.Converters
 {
     public class MultiValueConverter : IMultiValueConverter
     {

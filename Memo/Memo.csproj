@@ -8,12 +8,42 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Icon\icon.png" />
     <None Remove="Images\logo.png" />
+    <None Remove="Images\picture\anger.png" />
+    <None Remove="Images\picture\blast.png" />
+    <None Remove="Images\picture\cash.png" />
+    <None Remove="Images\picture\clown.png" />
+    <None Remove="Images\picture\easy.png" />
+    <None Remove="Images\picture\Empty.png" />
+    <None Remove="Images\picture\ghost.png" />
+    <None Remove="Images\picture\glasses.png" />
+    <None Remove="Images\picture\happy.png" />
+    <None Remove="Images\picture\hard.png" />
+    <None Remove="Images\picture\medium.png" />
+    <None Remove="Images\picture\shifter.png" />
+    <None Remove="Images\picture\smile.png" />
+    <None Remove="Images\picture\wistful.png" />
     <None Remove="Images\templateIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\logo.png" />
+    <Resource Include="Images\Icon\icon.png" />
+    <Resource Include="Images\picture\anger.png" />
+    <Resource Include="Images\picture\blast.png" />
+    <Resource Include="Images\picture\cash.png" />
+    <Resource Include="Images\picture\clown.png" />
+    <Resource Include="Images\picture\Empty.png" />
+    <Resource Include="Images\picture\ghost.png" />
+    <Resource Include="Images\picture\glasses.png" />
+    <Resource Include="Images\picture\happy.png" />
+    <Resource Include="Images\picture\shifter.png" />
+    <Resource Include="Images\picture\smile.png" />
+    <Resource Include="Images\picture\wistful.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Commands\Base\" />
   </ItemGroup>
 
 </Project>
