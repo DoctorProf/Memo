@@ -2,8 +2,10 @@
 using Memo.Models;
 using Memo.ViewModels.Base;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Documents;
 
 namespace Memo.ViewModels
 {
@@ -99,9 +101,32 @@ namespace Memo.ViewModels
         }
         #endregion
 
+        public bool FindOpened()
+        {
+            List<FieldModel> opened = new();
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    if (F[i][j].texture == F[i][j].TexturePath && F[i][j].Enable)
+                    {
+                        opened.Add(F[i][j]);
+                    }
+                }
+            }
+            if (opened.Count == 2)
+            {
+                opened[0].TexturePath = TexturesPaths.Empty;
+                opened[1].TexturePath = TexturesPaths.Empty;
+                return true;
+            }
+            return false;
+        }
+
         #region ClickField
         public void ClickField(FieldModel field)
         {
+            if (FindOpened()) return;
             if (selectedField == null)
             {
                 selectedField = field;
@@ -130,7 +155,8 @@ namespace Memo.ViewModels
                 }
                 else
                 {
-                    selectedField.TexturePath = TexturesPaths.Empty;
+                    field.TexturePath = field.texture;
+                    //selectedField.TexturePath = TexturesPaths.Empty;
                     StepFirst = !StepFirst;
                 }
                 selectedField = null;
