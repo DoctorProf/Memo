@@ -46,6 +46,7 @@ namespace Memo.ViewModels
             GenerateTexture();
             PointPlayer1 = 0;
             PointPlayer2 = 0;
+            StepFirst = true;
         }
         #endregion
 
